@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  remind-service:
+    build:
+      context: remind-service
+    image: ngockhuong/remind-service
+    container_name: remind-service
+    environment:
+      SPRING_ENV: production
+      DATABASE_URL: mongodb+srv://${DATABASE_USER}:${DATABASE_PASSWORD}@${DATABASE_HOST}/${DATABASE_NAME}?retryWrites=true
+    ports:
+      - 6996:6996
+      - 8787:8787

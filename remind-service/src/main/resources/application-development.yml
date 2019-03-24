@@ -1,0 +1,26 @@
+server:
+  port: 6996
+
+spring:
+  data:
+    mongodb:
+      host: ${database.host}
+      port: ${database.port}
+      database: ${database.name}
+      username: ${database.user}
+      password: ${database.password}
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+  level:
+    org.springframework.web: DEBUG
+    org:
+      springframework:
+        web:
+          filter:
+            CommonsRequestLoggingFilter: DEBUG
+      hibernate:
+        SQL: DEBUG
+        type.descriptor.sql: TRACE
+    com.ngockhuong.services.remind: DEBUG
